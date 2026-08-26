@@ -1,0 +1,22 @@
+name: Temporary CD
+
+on:
+  push:
+
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Temporary deployment
+        run: |
+          echo "Temporary CD workflow is running!"
+          echo "Commit: $GITHUB_SHA"
+          echo "Branch: $GITHUB_REF_NAME"
+
+      - name: Finish
+        run: echo "Temporary deployment completed successfully."
