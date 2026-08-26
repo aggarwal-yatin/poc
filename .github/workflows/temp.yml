@@ -1,0 +1,25 @@
+name: Temporary Workflow
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run temporary test
+        run: |
+          echo "Temporary GitHub workflow is running!"
+          echo "Commit: $GITHUB_SHA"
+          echo "Branch: $GITHUB_REF_NAME"
+
+      - name: Finish
+        run: echo "Temporary workflow completed successfully."
+
